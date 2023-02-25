@@ -11,8 +11,19 @@
     <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
 </head>
 <body>
-    {% block content %}
-
-    {% endblock%}
+    <aside>
+        <img src="{% static 'main/img/logo.png' %}" alt="logo">
+        <span class="logo">CV</span>
+        <h3>Navigation</h3>
+        <ul>
+            <a href="{% url 'home' %}"><li>main</li></a>
+            <a href="{% url 'about' %}"><li>about</li></a>
+            <a href=""><li>contact</li></a>
+        </ul>
+    </aside>
+    <main>
+        {% block content %}
+        {% endblock%}
+    </main>
 </body>
 </html>
