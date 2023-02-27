@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Articles
 from .forms import ArticlesForm
 # Create your views here.
@@ -15,6 +15,7 @@ def create(request):
         form = ArticlesForm(request.POST)
         if form.is_valid():
             form.save()
+            return redirect('news_home')
         else:
             error = 'form is incorrect'
             
@@ -25,4 +26,3 @@ def create(request):
         'error': error
     }
     return render(request, "news/create.html", data)
-
